@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width= , initial-scale=1.0">
+    <link rel="stylesheet" href="clock.css">
+    
+    <title>Document</title>
+</head>
+<body>
+    <div class="clock">
+        <div class="hour">
+            <div class="hr" id="hr"></div>
+        </div>
+
+        <div class="min">
+            <div class="mn" id="mn"></div>
+        </div>
+        
+        <div class="sec">
+            <div class="sc" id="sc"></div>
+        </div>
+        
+    </div>
+
+    <script>
+        
+       const hrdiv = document.getElementById('hr');
+       const mindiv = document.getElementById('mn');
+       const secdiv = document.getElementById('sc');
+       setInterval(update,3000);
+
+       function update(){
+           let day = new Date();
+           let sec = day.getSeconds()/ 60;
+           let min = (day.getMinutes() + sec )/ 60;
+           let hour = (day.getHours() + min )/ 12;
+
+           secdiv.style.transform = "rotate(" + ( sec *360) + "deg)";
+           mindiv.style.transform = "rotate(" + ( min *360) + "deg)";
+           hrdiv.style.transform = "rotate(" + ( hour *360) + "deg)";
+       }
+
+    update();
+
+
+    </script>
+
+    
+
+
+</body>
+</html>
